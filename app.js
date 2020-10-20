@@ -68,21 +68,7 @@ const userSelect = document.getElementById("userSelect")
 const userForm = document.getElementById("userAddress")
 const resultsDiv = document.getElementById("results")
 
-const userMap = async () => {
-    try {
-        const response = await axios.get(GMAP_URL)
-        let userData = response.data
-        let userCoordinates = {
-            userLongitude: userData.location.lng,   //unsure if correct way to retrieve info
-            userLatitude: userData.location.lat     //see above
-        }
-        console.log(userCoordinates)
-    }catch(error){
-        console.log(error)
-    }
-    console.log(userData)
-}
-
+// userMap()
 const useCurrentPosition = () => 
     navigator.geolocation.getCurrentPosition(position=> {
         position.coords.latitude, position.coords.longitude         
@@ -90,34 +76,42 @@ const useCurrentPosition = () =>
         console.log(position.coords.longitude)
     })
 
-
-const getISS = async () => {
-    try {
-        const response = await axios.get(ISS_LOC) 
-        let issData = response.data
-        let issCoords = {
-            issLongitude: issData.iss_position.longitude, //I'm unsure if this is the right way to retrieve this
-            issLatitude: issData.iss_position.latitude  //see above
-            
-        }
-        console.log(issCoords)
-        
-    }catch(error){
-        console.log(error)
-        alert("We slipped on a banana peel somewhere")
-    }
-    console.log(response.data)        
-    console.log(ISS_LOC)
-}
-
 //I need to add a separate thing similar to below, but for the use current location
-userForm.addEventListener("submit", () => {     //proof that anonymous functions are not that scary
-    console.log("://BANANA_VALUE_RECEIVED");
-    userMap();
-    getISS();
-    let distanceKM = (Math.sqrt( ((issLongitude- userLongitude)**2) + ((issLatitude - userLatitude)**2)))/111;
+userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
+    e.preventDefault()
+    
+    let issLatitude = 5
+    let issLongitude = 4
+    let userLatitude = 33
+    let userLongitude = 21    
+
+    try {
+        const issResponse = await axios.get(ISS_LOC) 
+        const userResponse = await axios.get(GMAP_URL)
+        issLatitude = issResponse.data.iss_position.latitude
+        issLongitude = issResponse.data.iss_position.longitude
+        let userData = userResponse.data.results[0].geometry.location
+        userLatitude = userData.lat
+        userLongitude = userData.lng
+
+    }
+    catch(error){
+        console.log(error)
+    }
+    
+    console.log("://BANANA_BUTTON_VALUE_RECEIVED");
+    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)));
+    console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
+
     let bananaDistance =(distanceKM)/banana
-    return distanceKM, bananaDistance
+    let realDistance = document.createElement('h2')
+    let distanceNannerfied = document.createElement('h2')
+    realDistance.innerHTML = `Your distance is ${distanceKM}KM`
+    distanceNannerfied.innerHTML = `Your distance is ${bananaDistance} bananas`
+
+    console.log(`Distance KM: `, distanceKM)
+    resultsDiv.appendChild(realDistance)
+    resultsDiv.appendChild(distanceNannerfied)
     
     //From here, it's going to take the users address and
     //input that as the value for google maps
@@ -125,8 +119,6 @@ userForm.addEventListener("submit", () => {     //proof that anonymous functions
     //which I need to grab in the userMap function
     //and put it as part of the argument in the distanceKM function
 })
-let results = document.createElement('p')
-resultsDiv.appendChild(results)
 // //     This is my formula for getting the distance in KM
 // let bananaDistance = (distanceKM*kM)/banana
 // // this needs to be appended to a results div in the body of the index.html
@@ -138,32 +130,6 @@ resultsDiv.appendChild(results)
 // document.querySelector('.getDogs').addEventListener('click', getDogs)
 // //FIND BUTTON, ADD EVENT LISTENER TO IT, CALL GET QUOTE FUNCTION ON CLICK
 // document.querySelector('.button').addEventListener('click', getQuote)
-
-
-// distance = square root of ( (x2 - x1)^2 + (y2 - y1)^2
-// the distance between one degree of latitude is 111km
-
-// and then I need to take that distance...
-// and divide it by bananas
-// average banana is 18cm
-
-// So my formula is going to take 
-// Parameter 1 User Input x1, y1
-// Parameter 2 ISS location x2, y2
-
-// distanceInKM = (sqrt (spaceLong - userLong)^2 + (spaceLat - userLat)^2)/111
-
-// distanceInKM then gets divided by banana length
-
-
-/**Square Root of */
-
-
-// let bananaKM = (distanceKM*100000)/18
-
-
-
-
 
 
 
