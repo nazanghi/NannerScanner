@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: #4CD73F;
+    font-style: courier;
+
+}
+
+#banana-console {
+    margin: 2px solid gray;
+    display: flex;
+    
+}
+
+.address {
+    background-color: gray;
+}
