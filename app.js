@@ -1,8 +1,12 @@
 const ISS_LOC = "http://api.open-notify.org/iss-now.json"
-const MAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA"
+const GMAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA"
 
 /**
-I need to take user parameters of their location
+ * 
+ * http://api.open-notify.org/iss-now.json
+ * 
+I need to take user parameters of their location, in a string
+and let gmaps turn it into coordinates
 and the location data of the ISS 
 and plug it into a formula that will calculate the distance between two objects across a sphere
 
@@ -58,17 +62,45 @@ And this is Google Maps, which has a lot more information but isn't necessarily 
         I need to return an error if the User puts in a wrong address
             Could be fun to just give them a random location instead of letting them pick a new one
                 -Make an array of stupid default locations
+                -Start with Margaritaville, when MVP is met, make array to store BS addresses
                     -like Margaritaville in Florida
-                    -or the last blockbuster
-                    -Alamogordo, mass burial of ET games
+                    -or the last blockbuster, in Bend, Oregon
+                    -Alamogordo, New Mexico mass burial of ET games
 */
 
-const banana = 18
-const kM = 100000
-const distanceUnit = (111*kM) 
-console.log(distanceUnit)
+const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
+const startingAddress = document.getElementById("starting-address")
+let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
+let addressInput = startingAddress.value || bsAddress
+
+
+
+const banana = 18 //This may be useful later
+const kM = 100000 //this is just how many CM are in one KM
+const distanceUnit = (111*kM) //and this is how many KM are in a unit of long/lat
+
 
 //I need to work the following in with the relevant API functions
-calculator = (ISS, userInput) => { //these values are pseudocoded to provide framework
+// calculator = (ISS, userInput) => { //these values are pseudocoded to provide framework
+// }
 
+const getISS = async () => {
+    //async does .then().then().catch()
+    try {
+        const response = await axios.get(ISS_LOC) // await puts a pause place in the code to wait for the request to catch up
+    }catch(error){
+        console.log(error)
+        alert("We slipped on a banana peel somewhere")
+    }
+    const response = await axios.get(ISS_LOC)
 }
+
+const userMap = async () => {
+    try {
+        const response = await axios.get(GMAP_URL)
+    }catch(error){
+        addressInput = bsAddress
+    }
+    const response = await axios.get()
+}
+
