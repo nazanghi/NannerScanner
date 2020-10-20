@@ -92,15 +92,16 @@ const getISS = async () => {
         console.log(error)
         alert("We slipped on a banana peel somewhere")
     }
-    const response = await axios.get(ISS_LOC)
+    console.log(response.data)
+    // const response = await axios.get(ISS_LOC)
 }
 
 const userMap = async () => {
     try {
         const response = await axios.get(GMAP_URL)
     }catch(error){
-        addressInput = bsAddress
+        console.log(error)
     }
-    const response = await axios.get()
+    console.log(response.data)
 }
 
