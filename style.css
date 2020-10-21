@@ -2,7 +2,7 @@ body{
     background-color: black;
     color: #4CD73F;
     font-family: courier;
-
+    cursor: url('img/spinninNanner.gif'), auto;
 }
 
 
@@ -10,7 +10,7 @@ body{
 
 
 
-#banana-console {
+#bananaConsole {
     border: 6px solid gray;
     display: flex;
     position: relative;
@@ -29,8 +29,14 @@ make the background darker/ when clicked invert colors
     /* background-color: blue; */
 }
 
-#leftBorder {
+button {
+    background-color: darkslategray;
+    color:lightcyan;
+    
+}
 
+button:hover {
+    background-color: blue;
 }
 
 #userAddress {
@@ -44,6 +50,3 @@ make the background darker/ when clicked invert colors
     color: white;
 }
 
-.bananaAscii {
-    font-size: .5rem;
-}

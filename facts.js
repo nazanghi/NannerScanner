@@ -39,4 +39,9 @@ issFactButton.addEventListener('click', () => {
         
         })
         
-        
+/**
+ * 
+ * 
+ * I'm a nerd who loves disrupting as much as building. 
+ * I'm fueled by my desire to learn knowledge and create experiences to share with others.
+ * I thrive in supportive roles where I can help a team be its best. */
