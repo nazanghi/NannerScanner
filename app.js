@@ -26,24 +26,52 @@ PROGRAMMING STEPS
     7. Reset values when NSJ is invoked again
     8. Style CSS to look like an old terminal
 
+PROJECT REQUIREMENTS
+1. ReadMe
+2. Utilize Flexbox/grid
+3. Secondary HTML page
+4. two event handlers
+5. 20 git commits
+6. Clean Code
+
+
+
 CHALLENGES: 
-    Figuring out how to withdraw the longitude and latitude values out of each code function
-    NPM errors, wtf do I do
+Figuring out how to withdraw the longitude and latitude values out of each code function
+NPM errors, wtf do I do
 
 HANGUPS:
 
-    Second HTML: Need to have an additional HTML page
+Second HTML: Need to have an additional HTML page
 
 
 STRETCH:
-    More stupid addresses
-    More stupid CSS themes
+More stupid addresses
+More stupid CSS themes
+
+
+/**STRETCH GOALS
+ * 
+ * 
+Could be fun to just give them a random location instead of letting them pick a new one
+-Make an array of stupid default locations
+-Start with Margaritaville, when MVP is met, make array to store BS addresses
+-like Margaritaville in Florida
+-or the last blockbuster, in Bend, Oregon
+-Alamogordo, New Mexico mass burial of ET games
+-world's largest banana farm
+-world's largest banana
+-bluth banana stand location
+-where bananas in pajamas was filmed
+-where the factory that makes bananagrams is
+-curious george theme park
+-Cocomo, Indiana John Stamos played Steel Drums
+
+ */
 
 
 
 
-
-*/
 console.log("://NANNER_SCANNER_TESTING")
 
 if ('geolocation' in navigator) {
@@ -62,7 +90,7 @@ let addressInput = startingAddress.value || bsAddress //gives user address OR if
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
 const banana = 18 //This may be useful later
 const kM = 100000 //this is just how many CM are in one KM
-const distanceUnit = (111*kM) //and this is how many KM are in a unit of long/lat
+
 
 const userSelect = document.getElementById("userSelect")
 const userForm = document.getElementById("userAddress")
@@ -77,13 +105,17 @@ const useCurrentPosition = () =>
     })
 
 //I need to add a separate thing similar to below, but for the use current location
-userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
+
+
+userForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     
-    let issLatitude = 5
-    let issLongitude = 4
-    let userLatitude = 33
-    let userLongitude = 21    
+    let issLatitude = 0
+    let issLongitude = 0
+    let userLatitude = 0
+    let userLongitude = 0
+
+    
 
     try {
         const issResponse = await axios.get(ISS_LOC) 
@@ -100,10 +132,10 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     }
     
     console.log("://BANANA_BUTTON_VALUE_RECEIVED");
-    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)));
+    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111;
     console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
 
-    let bananaDistance =(distanceKM)/banana
+    let bananaDistance = distanceKM/(banana/kM)
     let realDistance = document.createElement('h2')
     let distanceNannerfied = document.createElement('h2')
     realDistance.innerHTML = `Your distance is ${distanceKM}KM`
@@ -113,39 +145,61 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     resultsDiv.appendChild(realDistance)
     resultsDiv.appendChild(distanceNannerfied)
     
-    //From here, it's going to take the users address and
-    //input that as the value for google maps
-    //Then it's going to take the longitude and latitude of it
-    //which I need to grab in the userMap function
-    //and put it as part of the argument in the distanceKM function
 })
-// //     This is my formula for getting the distance in KM
-// let bananaDistance = (distanceKM*kM)/banana
-// // this needs to be appended to a results div in the body of the index.html
 
 
-    // I need to make the button run the distance-logger
+userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
+    e.preventDefault()
     
+    let issLatitude = 0
+    let issLongitude = 0
+    let userLatitude = 0
+    let userLongitude = 0    
 
-// document.querySelector('.getDogs').addEventListener('click', getDogs)
-// //FIND BUTTON, ADD EVENT LISTENER TO IT, CALL GET QUOTE FUNCTION ON CLICK
-// document.querySelector('.button').addEventListener('click', getQuote)
+    try {
+        const issResponse = await axios.get(ISS_LOC) 
+        const userResponse = await axios.get(GMAP_URL)
+        issLatitude = issResponse.data.iss_position.latitude
+        issLongitude = issResponse.data.iss_position.longitude
+        let userData = userResponse.data.results[0].geometry.location
+        userLatitude = userData.lat
+        userLongitude = userData.lng
+
+    }
+    catch(error){
+        console.log(error)
+    }
+    
+    console.log("://BANANA_BUTTON_VALUE_RECEIVED");
+    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111;
+    console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
+
+    let bananaDistance = distanceKM/(banana/kM)
+    let realDistance = document.createElement('h2')
+    let distanceNannerfied = document.createElement('h2')
+    realDistance.innerHTML = `Your distance is ${distanceKM}KM`
+    distanceNannerfied.innerHTML = `Your distance is ${bananaDistance} bananas`
+
+    console.log(`Distance KM: `, distanceKM)
+    resultsDiv.appendChild(realDistance)
+    resultsDiv.appendChild(distanceNannerfied)
+})
 
 
+let bananaFacts = [
+    "bananafact1", "bananafact2", "bananafact3", "bananafact4", "bananafact5", "bananafact6"
+]
 
 
+let issFacts = ["spacefact1", "spacefact2", ]
+
+let bananaFactButton = document.getElementById("banana-facts")
 
 
-
-
-/**STRETCH GOALS
- * 
- * 
-Could be fun to just give them a random location instead of letting them pick a new one
--Make an array of stupid default locations
--Start with Margaritaville, when MVP is met, make array to store BS addresses
--like Margaritaville in Florida
--or the last blockbuster, in Bend, Oregon
--Alamogordo, New Mexico mass burial of ET games
-
- */
+const theBananaFactor = () => {
+    document.querySelector("#banana-facts").textContent= `${
+        bananaFacts[Math.floor(Math.random()*bananaFacts.length)]}`
+    }    
+    
+bananaFactButton.addEventListener('click', theBananaFactor)
+    

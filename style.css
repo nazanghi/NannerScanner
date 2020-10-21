@@ -6,12 +6,35 @@ body{
 }
 
 #banana-console {
-    margin: 6px solid gray;
+    border: 6px solid gray;
     display: flex;
+    position: relative;
 
+}
+/* when the banana button is clicked, button background should change
+or green
+
+when bananafy button is hovered/clicked
+make the background darker/ when clicked invert colors
+*/
+.bananaBody {
+    width: 50vw;
+    text-align: center;
+    margin: auto;
+    /* background-color: blue; */
+}
+
+#leftBorder {
+
+}
+
+#userAddress {
+    display: flex;
+    position: absolute;
+    right: 0;
 }
 
 .address {
     background-color: gray;
-    color: lightsalmon;
+    color: white;
 }
