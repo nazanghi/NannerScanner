@@ -76,13 +76,21 @@ if ('geolocation' in navigator) {
 }
 
 
+bsAddresses = [
+    {name: "Margaritaville", address: "245 Front Street, Key West, FL 33040"}, //Margaritaville
+    {name: "The Last Blockbuster", address: "211 NE Revere Ave, Bend, OR 97701"}, //The last Blockbuster
+    {name: "The Winchester Mansion", address: "525 S Winchester Blvd, San Jose, CA 95128"} //Winchester Mansion
+
+]
+
+
 const ISS_LOC = "http://api.open-notify.org/iss-now.json" //API for the ISS
 const GMAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA" //API Key for Google Maps
 const startingAddress = document.getElementById("startingAddress") //where the user types their address
 let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
-let addressInput = startingAddress.value || bsAddress //gives user address OR if null, Margaritaville, etc
+let addressInput = startingAddress.value || bsAddresses[Math.floor(Math.random()*bsAddresses.length)] //gives user address OR if null, Margaritaville, etc
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
-const banana = 18 //This may be useful later
+const banana = 18 
 const kM = 100000 //this is just how many CM are in one KM
 const bananaResults = document.getElementById('bananaResults')
 
@@ -163,8 +171,8 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     
     // let distanceNannerfied = document.createElement('h2')
     // realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
-    bananaResults.innerText = `Your location is ${bananaDistance} bananas away from the International Space Station's current location.`
-
+    bananaResults.innerText = `Your location is about ${bananaDistance} bananas away from the International Space Station's current location.`
+    
     // console.log(`Distance KM: `, distanceKM)
     // resultsDiv.appendChild(realDistance)
     // resultsDiv.appendChild(distanceNannerfied)

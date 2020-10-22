@@ -36,14 +36,31 @@ div {
     border: 3px dashed red;
 }
 
-.floatingBanana.resize {
-    width: 4rem;
+#facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.floatingBanana{
+    width: 75px;
+    height: auto;
+    animation-name: spin;
+    animation-duration: 9500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .bananaBody {
-    width: 50vw;
+    width: 75vw;
     text-align: center;
-    margin: auto;    
+    margin: auto;
+    display: flex, grid;
+
+}
+
+#bananaConsole {
+    display: flex;
+    align-items: flex-end;
 }
 
 .address {
@@ -51,27 +68,19 @@ div {
     color: white;
     font-family: "Shadows Into Light";
     border-radius: 25%;
-}
-
-#bananaBody {
-    display: flex;
-    flex-direction: row-reverse;
-    opacity: 50%;
-    background-color: orange;
-}
-
-#bananaConsole {
-    border: 3px #7e18a3;
-    position: relative;
-    display: flex;
-    opacity: 50%;
+    width: 20rem;
+    height: 1rem;
     
 }
 
+#results {
+    background-color: darkslateblue;
+    opacity: 40%;
+    border-radius: 50%;
+}
 
 #userAddress {
     display: flex;
-    position: absolute;
 }
 
 
@@ -83,8 +92,8 @@ make the background darker/when clicked invert colors
 */
 
 /* Colors I'll use:
-Banana Yellow #F0d53c (use sparingly)
-dark aqua #3973A3 (Background)
+Banana Yellow #F0d53c 
+dark aqua #3973A3 
 Lighter blue #48A3f0
 Purple 7E18A3
 Lilac D487F0 

@@ -14,7 +14,7 @@ let issFacts = [
     "The International Space Station has been continuously operated since November 2000. 240 individuals from 19 countries have visited it!",
  "The ISS moves five miles per second, and orbits the Earth every 90 minutes. That means every 24 hours, it experiences 16 sunrises and sunsets!",
 "The internal pressurized volume of the ISS is 916 cubic meters. That means it could hold 7,328,000 bananas, but that would probably be a bad idea.",
- "The ISS uses about 1.5 MILLION lines of computer code. Its support on Earth uses an additional 3 million! If you were to stack bananas next to each other on the screen, it would be 101,003 bananas!",
+ "The ISS uses about 1.5 MILLION lines of computer code. Its support on Earth uses an additional 3 million! If it were size 12 font and you were to stack bananas next to each other on the screen, it would be 101,003 bananas!",
  "Peggy Whitson has spent the most time living and working on the ISS, having spent 665 days! If you were to eat that many bananas, you wouldn't be able to do it in one sitting.",
  `Yuri Gagarin, the first cosmonaut, once said, "I see no god here." If he brought a banana though, he would have seen that."`
 ]
@@ -42,8 +42,6 @@ issFactButton.addEventListener('click', () => {
 /** 
  * TODAY'S GOALS
  * 
- * 1. Properly format responses
- * 2. Clean up Javascript, parse int on distances
  * 3. Get CSS to point where I feel good about it
  * 4. Then ask for help
  * 5. Readme.md
