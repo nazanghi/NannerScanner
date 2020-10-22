@@ -171,14 +171,14 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     }
     
     console.log("://BANANA_BUTTON_VALUE_RECEIVED");
-    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111;
+    let distanceKM = parseInt((Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111);
     console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
 
-    let bananaDistance = distanceKM/(banana/kM)
+    let bananaDistance = parseInt(distanceKM/(banana/kM))
     let realDistance = document.createElement('h2')
     let distanceNannerfied = document.createElement('h2')
-    realDistance.innerHTML = `Your distance is ${distanceKM}KM`
-    distanceNannerfied.innerHTML = `Your distance is ${bananaDistance} bananas`
+    realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
+    distanceNannerfied.innerHTML = `Your location is ${bananaDistance} bananas away from the International Space Station`
 
     console.log(`Distance KM: `, distanceKM)
     resultsDiv.appendChild(realDistance)
