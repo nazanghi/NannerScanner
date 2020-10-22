@@ -15,59 +15,76 @@ h2 {
 h1 {
     color: #F0D53C;
     size: 5rem;
-    font-family: "Mr Dafoe"; 
+    font-family: "Turret Road"; 
 }
+
+button {
+    background-color: darkslategray;
+    color:lightcyan;
+    border-radius: 50%;
+    font-family: "Shadows Into Light";
+    
+}
+
+button:hover {
+    background-color: yellow;
+    cursor: pointer;
+    color: black;
+}
+
+div {
+    border: 3px dashed red;
+}
+
+.floatingBanana.resize {
+    width: 4rem;
+}
+
+.bananaBody {
+    width: 50vw;
+    text-align: center;
+    margin: auto;    
+}
+
+.address {
+    background-color: lightblue;
+    color: white;
+    font-family: "Shadows Into Light";
+    border-radius: 25%;
+}
+
+#bananaBody {
+    display: flex;
+    flex-direction: row-reverse;
+    opacity: 50%;
+    background-color: orange;
+}
+
+#bananaConsole {
+    border: 3px #7e18a3;
+    position: relative;
+    display: flex;
+    opacity: 50%;
+    
+}
+
+
+#userAddress {
+    display: flex;
+    position: absolute;
+}
+
+
+/* when the banana button is clicked, button background should change
+or green
+
+when bananafy button is hovered/clicked
+make the background darker/when clicked invert colors
+*/
+
 /* Colors I'll use:
 Banana Yellow #F0d53c (use sparingly)
 dark aqua #3973A3 (Background)
 Lighter blue #48A3f0
 Purple 7E18A3
 Lilac D487F0 
-
-
-
-*/
-
-
-#bananaConsole {
-    border: 3px #7e18a3;
-    display: flex;
-    position: relative;
-    
-
-}
-/* when the banana button is clicked, button background should change
-or green
-
-when bananafy button is hovered/clicked
-make the background darker/ when clicked invert colors
-*/
-.bananaBody {
-    width: 50vw;
-    text-align: center;
-    margin: auto;
-    /* background-color: blue; */
-}
-
-button {
-    background-color: darkslategray;
-    color:lightcyan;
-    
-}
-
-button:hover {
-    background-color: gray;
-    cursor: pointer;
-}
-
-#userAddress {
-    display: flex;
-    position: absolute;
-    right: 0;
-}
-
-.address {
-    background-color: gray;
-    color: white;
-}
-
