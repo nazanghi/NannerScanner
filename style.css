@@ -1,12 +1,13 @@
 body{
-    background-color: black;
-    color: #4CD73F;
-    font-family: courier;
-    cursor: url('img/spinninNanner.gif'), auto;
+background: linear-gradient(0deg, rgba(0,212,255,1) 26%, rgba(121,9,115,1) 50%, rgba(8,0,36,0.8939950980392157) 96%);
+
 }
 
 
-
+h1 {
+    color: yellow;
+    g
+}
 
 
 
