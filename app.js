@@ -27,18 +27,12 @@ PROGRAMMING STEPS
     8. Style CSS to look like an old terminal
 
 PROJECT REQUIREMENTS
-1. ReadMe
-2. Utilize Flexbox/grid
-3. Secondary HTML page
-4. two event handlers
+1. ReadMe Need to make 
+2. Utilize Flexbox/grid Need to do more 
+3. Secondary HTML page Could Use Improvement
+4. two event handlers DONE
 5. 20 git commits
 6. Clean Code
-
-
-
-CHALLENGES: 
-Figuring out how to withdraw the longitude and latitude values out of each code function
-NPM errors, wtf do I do
 
 HANGUPS:
 
@@ -102,6 +96,12 @@ const useCurrentPosition = () =>
         position.coords.latitude, position.coords.longitude         
         console.log(position.coords.latitude)
         console.log(position.coords.longitude)
+    
+    
+    
+    
+    
+    
     })
 
 //I need to add a separate thing similar to below, but for the use current location
@@ -138,12 +138,12 @@ userForm.addEventListener("submit", async (e) => {
     let bananaDistance = distanceKM/(banana/kM)
     let realDistance = document.createElement('h2')
     let distanceNannerfied = document.createElement('h2')
-    realDistance.innerHTML = `Your distance is ${distanceKM}KM`
-    distanceNannerfied.innerHTML = `Your distance is ${bananaDistance} bananas`
+    return bananaDistance
+    
 
-    console.log(`Distance KM: `, distanceKM)
-    resultsDiv.appendChild(realDistance)
-    resultsDiv.appendChild(distanceNannerfied)
+    // console.log(`Distance KM: `, distanceKM)
+    // resultsDiv.appendChild(realDistance)
+    // resultsDiv.appendChild(distanceNannerfied)
     
 })
 
@@ -178,7 +178,7 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     let realDistance = document.createElement('h2')
     let distanceNannerfied = document.createElement('h2')
     realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
-    distanceNannerfied.innerHTML = `Your location is ${bananaDistance} bananas away from the International Space Station`
+    distanceNannerfied.innerHTML = `Your location is ${bananaDistance} bananas away from the International Space Station's current location.`
 
     console.log(`Distance KM: `, distanceKM)
     resultsDiv.appendChild(realDistance)
