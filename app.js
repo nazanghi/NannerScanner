@@ -64,8 +64,8 @@ Could be fun to just give them a random location instead of letting them pick a 
  */
 
 
-
-
+// import spinninNanner from "./img/spinninNanner"
+// console.log(spinninNanner)
 console.log("://NANNER_SCANNER_TESTING")
 
 if ('geolocation' in navigator) {
@@ -77,9 +77,9 @@ if ('geolocation' in navigator) {
 
 
 bsAddresses = [
-    {name: "Margaritaville", address: "245 Front Street, Key West, FL 33040"}, //Margaritaville
-    {name: "The Last Blockbuster", address: "211 NE Revere Ave, Bend, OR 97701"}, //The last Blockbuster
-    {name: "The Winchester Mansion", address: "525 S Winchester Blvd, San Jose, CA 95128"} //Winchester Mansion
+    {name: "Margaritaville", address: "245 Front Street, Key West, FL 33040"}, 
+    {name: "The Last Blockbuster", address: "211 NE Revere Ave, Bend, OR 97701"}, 
+    {name: "The Big Banana", address: "351 Pacific Hwy, Coffs Harbour NSW 2450, Australia"} 
 
 ]
 
@@ -177,4 +177,37 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     // console.log(`Distance KM: `, distanceKM)
     // resultsDiv.appendChild(realDistance)
     // resultsDiv.appendChild(distanceNannerfied)
+})
+
+
+let nansForever = document.getElementById("nansForever")
+
+document.addEventListener("DOMContentLoaded", () =>{
+    for (let i=0; i <50; i++) {
+        let holyBanana= document.createElement("div")
+        let bananaBody= document.createElement("div")
+        let link = document.createElement("a")
+        let img = document.createElement("img")
+        img.setAttribute("src", "https://media.tenor.com/images/a41a9667ebbf62041425bb9e7eadcd11/tenor.gif")
+        img.classList.add('nanners')
+        link.href="./facts.html"
+        link.appendChild(img)
+        bananaBody.appendChild(link)
+        holyBanana.appendChild(bananaBody)
+        bananaBody.classList.add('floatingBanana')
+        holyBanana.classList.add('flyingBanana')
+
+        nansForever.appendChild(holyBanana)
+    }
+    let iss= document.createElement("div")
+    let issSpin = document.createElement('div')
+    let issImg = document.createElement('img')
+    issImg.src = "https://media4.giphy.com/media/efyEHHq2LXZIvLlEpI/giphy.gif"
+    issSpin.classList.add('floatingBanana')
+    iss.classList.add('flyingBanana')
+    issImg.style.width = "400px"
+    issImg.style.height = "auto"
+    issSpin.appendChild(issImg)
+    iss.appendChild(issSpin)
+    nansForever.appendChild(iss)
 })

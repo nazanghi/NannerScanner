@@ -21,7 +21,7 @@ let issFacts = [
 
 const bananaFactButton = document.getElementById("bananaFactButton")
 const bananaFactZone = document.getElementById("bananaFactZone")
-const factZone = document.getElementById("factZone")
+const factZone = document.querySelector(".results")
 
 
 bananaFactButton.addEventListener('click', () => {

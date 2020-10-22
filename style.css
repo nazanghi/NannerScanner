@@ -2,13 +2,18 @@ body{
     background-color: #3973A3;
     color: #D487F0;
     background-image: url('/Users/nico/Desktop/general-assembly/unit1/hw/IBSS/img/spaceBackground.jpeg');
-    font-family: "Shadows Into Light";
+    font-family: "Montserrat", "courier";
     text-align: center;
 }
 
-h2 {
+h2{
     color: #7e18a3;
-    font-family: "Permanent Marker";
+    font-family: "Krona One";
+}
+
+h3 {
+    color: #D487f0;
+    font-family: "Krona One";
 }
 
 
@@ -22,7 +27,7 @@ button {
     background-color: darkslategray;
     color:lightcyan;
     border-radius: 50%;
-    font-family: "Shadows Into Light";
+    font-family: "Montserrat";
     
 }
 
@@ -41,13 +46,45 @@ button:hover {
     grid-template-columns: 1fr 1fr;
 }
 
+.nanners {
+    max-width: 75px;
+}
+
+@keyframes float {
+    from {
+        transform: translateX(0)
+    }
+    to {
+        transform: translateX(100vw)
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .floatingBanana{
-    width: 75px;
+    max-width: 75px;
     height: auto;
     animation-name: spin;
     animation-duration: 9500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+
+}
+.flyingBanana{
+    max-width: 75px;
+    height: auto;
+    animation-name: float;
+    animation-duration: 9500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
 }
 
 .bananaBody {
@@ -66,7 +103,7 @@ button:hover {
 .address {
     background-color: lightblue;
     color: white;
-    font-family: "Shadows Into Light";
+    font-family: "Montserrat";
     border-radius: 25%;
     width: 20rem;
     height: 1rem;
@@ -76,19 +113,16 @@ button:hover {
 #results {
     background-color: darkslateblue;
     opacity: 90%;
-    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #userAddress {
     display: flex;
 }
 
-#factZone{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-}
 
 
 /* when the banana button is clicked, button background should change
