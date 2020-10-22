@@ -84,68 +84,53 @@ let addressInput = startingAddress.value || bsAddress //gives user address OR if
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
 const banana = 18 //This may be useful later
 const kM = 100000 //this is just how many CM are in one KM
-
+const bananaResults = document.getElementById('bananaResults')
 
 const userSelect = document.getElementById("userSelect")
 const userForm = document.getElementById("userAddress")
 const resultsDiv = document.getElementById("results")
-
+const currentLocation = document.getElementById("currentLocation")
 // userMap()
-const useCurrentPosition = () => 
-    navigator.geolocation.getCurrentPosition(position=> {
-        position.coords.latitude, position.coords.longitude         
-        console.log(position.coords.latitude)
-        console.log(position.coords.longitude)
-    
-    
-    
-    
-    
-    
-    })
+
 
 //I need to add a separate thing similar to below, but for the use current location
 
 
-userForm.addEventListener("submit", async (e) => {
-    e.preventDefault()
+// currentLocation.addEventListener("click", async (e) => {
+//     e.preventDefault()
     
-    let issLatitude = 0
-    let issLongitude = 0
-    let userLatitude = 0
-    let userLongitude = 0
-
+//     let issLatitude = 0
+//     let issLongitude = 0
+//     let userLatitude = 0
+//     let userLongitude = 0
     
+//     try {
+//         const issResponse = await axios.get(ISS_LOC) 
+//         useCurrentPosition = () =>
+//         navigator.geolocation.getCurrentPosition(position=> {
+//             position.coords.latitude, position.coords.longitude         
+//             userLongitude = position.coords.longitude
+//             userLatitude = position.coords.latitude
+//             return userLongitude, userLatitude  
+//         })
+            
 
-    try {
-        const issResponse = await axios.get(ISS_LOC) 
-        const userResponse = await axios.get(GMAP_URL)
-        issLatitude = issResponse.data.iss_position.latitude
-        issLongitude = issResponse.data.iss_position.longitude
-        let userData = userResponse.data.results[0].geometry.location
-        userLatitude = userData.lat
-        userLongitude = userData.lng
-
-    }
-    catch(error){
-        console.log(error)
-    }
+//         issLatitude = issResponse.data.iss_position.latitude
+//         issLongitude = issResponse.data.iss_position.longitude
+//         }
+//     catch(error){
+//         console.log(error)
+//     }
     
-    console.log("://BANANA_BUTTON_VALUE_RECEIVED");
-    let distanceKM = (Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111;
-    console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
+//     console.log("://BANANA_BUTTON_VALUE_RECEIVED");
+//     console.log(`User Coordinates: ${userLongitude, userLatitude} ISS Coords: ${issLongitude, issLatitude}`)
+//     let distanceKM = parseInt((Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111);
+//     console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
 
-    let bananaDistance = distanceKM/(banana/kM)
-    let realDistance = document.createElement('h2')
-    let distanceNannerfied = document.createElement('h2')
-    return bananaDistance
+//     let bananaDistance = parseInt(distanceKM/(banana/kM))
+//     bananaResults.InnerText = `Your current location is ${bananaDistance} bananas away from the International Space Station's current location.`
     
-
-    // console.log(`Distance KM: `, distanceKM)
-    // resultsDiv.appendChild(realDistance)
-    // resultsDiv.appendChild(distanceNannerfied)
-    
-})
+// })
 
 
 userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
@@ -175,12 +160,12 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
 
     let bananaDistance = parseInt(distanceKM/(banana/kM))
-    let realDistance = document.createElement('h2')
-    let distanceNannerfied = document.createElement('h2')
-    realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
-    distanceNannerfied.innerHTML = `Your location is ${bananaDistance} bananas away from the International Space Station's current location.`
+    
+    // let distanceNannerfied = document.createElement('h2')
+    // realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
+    bananaResults.innerText = `Your location is ${bananaDistance} bananas away from the International Space Station's current location.`
 
-    console.log(`Distance KM: `, distanceKM)
-    resultsDiv.appendChild(realDistance)
-    resultsDiv.appendChild(distanceNannerfied)
+    // console.log(`Distance KM: `, distanceKM)
+    // resultsDiv.appendChild(realDistance)
+    // resultsDiv.appendChild(distanceNannerfied)
 })
