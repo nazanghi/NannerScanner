@@ -21,20 +21,20 @@ let issFacts = [
 
 const bananaFactButton = document.getElementById("bananaFactButton")
 const bananaFactZone = document.getElementById("bananaFactZone")
+const factZone = document.getElementById("factZone")
 
 
 bananaFactButton.addEventListener('click', () => {
-        bananaFactZone.textContent= `${
+        factZone.textContent= `${
             bananaFacts[Math.floor(Math.random()*bananaFacts.length)]}`
         
         })
 
-const issFactButton = document.getElementById("issFactButton")
-const issFactZone = document.getElementById("issFactZone")
+
 
 
 issFactButton.addEventListener('click', () => {
-        issFactZone.textContent= `${
+        factZone.textContent= `${
             issFacts[Math.floor(Math.random()*issFacts.length)]}`
         
         })

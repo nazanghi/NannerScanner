@@ -32,9 +32,9 @@ button:hover {
     color: black;
 }
 
-div {
+/* div {
     border: 3px dashed red;
-}
+} */
 
 #facts {
     display: grid;
@@ -75,12 +75,19 @@ div {
 
 #results {
     background-color: darkslateblue;
-    opacity: 40%;
-    border-radius: 50%;
+    opacity: 90%;
+    
 }
 
 #userAddress {
     display: flex;
+}
+
+#factZone{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 

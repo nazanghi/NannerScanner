@@ -171,6 +171,7 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
     
     // let distanceNannerfied = document.createElement('h2')
     // realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
+    
     bananaResults.innerText = `Your location is about ${bananaDistance} bananas away from the International Space Station's current location.`
     
     // console.log(`Distance KM: `, distanceKM)
