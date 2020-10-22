@@ -39,9 +39,13 @@ issFactButton.addEventListener('click', () => {
         
         })
         
-/**
+/** 
+ * TODAY'S GOALS
  * 
- * 
- * I'm a nerd who loves disrupting as much as building. 
- * I'm fueled by my desire to learn knowledge and create experiences to share with others.
- * I thrive in supportive roles where I can help a team be its best. */
+ * 1. Properly format responses
+ * 2. Clean up Javascript, parse int on distances
+ * 3. Get CSS to point where I feel good about it
+ * 4. Then ask for help
+ * 5. Readme.md
+ * 6. Check in again and work on stretch goals
+ */
