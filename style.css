@@ -3,6 +3,7 @@ body{
     color: #D487F0;
     background-image: url('/Users/nico/Desktop/general-assembly/unit1/hw/IBSS/img/spaceBackground.jpeg');
     font-family: "Shadows Into Light";
+    text-align: center;
 }
 
 h2 {
