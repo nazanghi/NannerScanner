@@ -16,7 +16,8 @@ let issFacts = [
 "The internal pressurized volume of the ISS is 916 cubic meters. That means it could hold 7,328,000 bananas, but that would probably be a bad idea.",
  "The ISS uses about 1.5 MILLION lines of computer code. Its support on Earth uses an additional 3 million! If it were size 12 font and you were to stack bananas next to each other on the screen, it would be 101,003 bananas!",
  "Peggy Whitson has spent the most time living and working on the ISS, having spent 665 days! If you were to eat that many bananas, you wouldn't be able to do it in one sitting.",
- `Yuri Gagarin, the first cosmonaut, once said, "I see no god here." If he brought a banana though, he would have seen that."`
+ `From tip to tail, The International Space Station is 604 and a half bananas long!`,
+ `If you lined up every electrical cable onboard the ISS, it would  be 71,526 bananas long!`
 ]
 
 const bananaFactButton = document.getElementById("bananaFactButton")
@@ -39,3 +40,26 @@ issFactButton.addEventListener('click', () => {
         
         })
         
+let yesMoreNans = document.getElementById("yesMoreNans")
+
+document.addEventListener("DOMContentLoaded", () =>{
+    nannerfy = () => {
+    let holyBanana= document.createElement("div")
+    let bananaBody= document.createElement("div")
+    let img = document.createElement("img")
+    img.setAttribute("src", "https://media.tenor.com/images/a41a9667ebbf62041425bb9e7eadcd11/tenor.gif")
+    img.classList.add('nanners')
+    bananaBody.appendChild(img)
+    holyBanana.appendChild(bananaBody)
+    bananaBody.classList.add('floatingBanana')
+    holyBanana.classList.add('flyingBanana')
+    yesMoreNans.appendChild(holyBanana)
+}
+
+    let nannerSpawn = () => {
+        for (let i=0; i <50; i++) {
+            (setTimeout(nannerfy,(2000*i)))
+        }
+    }
+    setTimeout(nannerSpawn, 17000)
+})

@@ -117,6 +117,23 @@ button:hover {
     max-width: 75px;
 }
 
+.address {
+    background-color: lightblue;
+    color: white;
+    font-family: "Montserrat";
+    border-radius: 25%;
+    width: 20rem;
+    height: 1rem;
+}
+
+.results {
+    background-color: darkslateblue;
+    opacity: 90%;
+    display: flex;
+    justify-content: space-between, center;
+    
+}
+
 #facts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -137,25 +154,13 @@ button:hover {
     justify-content: center;
 }
 
-.address {
-    background-color: lightblue;
-    color: white;
-    font-family: "Montserrat";
-    border-radius: 25%;
-    width: 20rem;
-    height: 1rem;
-}
-
-.results {
-    background-color: darkslateblue;
-    opacity: 90%;
-    display: flex;
-    justify-content: space-between, center;
-    
-}
-
 #userAddress {
     display: flex;
     justify-content: space-between;
 }
 
+#factResults {
+    display: flex;
+    justify-content: center;
+    
+}

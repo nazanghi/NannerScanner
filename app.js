@@ -71,5 +71,5 @@ document.addEventListener("DOMContentLoaded", () =>{
             (setTimeout(nannerfy,(2000*i)))
         }
     }
-    setTimeout(nannerSpawn, 4000)
+    setTimeout(nannerSpawn, 17000)
 })
