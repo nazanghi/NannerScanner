@@ -39,11 +39,3 @@ issFactButton.addEventListener('click', () => {
         
         })
         
-/** 
- * TODAY'S GOALS
- * 
- * 3. Get CSS to point where I feel good about it
- * 4. Then ask for help
- * 5. Readme.md
- * 6. Check in again and work on stretch goals
- */

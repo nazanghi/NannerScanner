@@ -76,22 +76,17 @@ if ('geolocation' in navigator) {
 }
 
 
-bsAddresses = [
-    {name: "Margaritaville", address: "245 Front Street, Key West, FL 33040"}, 
-    {name: "The Last Blockbuster", address: "211 NE Revere Ave, Bend, OR 97701"}, 
-    {name: "The Big Banana", address: "351 Pacific Hwy, Coffs Harbour NSW 2450, Australia"} 
 
-]
 
 
 const ISS_LOC = "http://api.open-notify.org/iss-now.json" //API for the ISS
 const GMAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA" //API Key for Google Maps
 const startingAddress = document.getElementById("startingAddress") //where the user types their address
 let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
-let addressInput = startingAddress.value || bsAddresses[Math.floor(Math.random()*bsAddresses.length)] //gives user address OR if null, Margaritaville, etc
+let addressInput = startingAddress.value || bsAddress
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
 const banana = 18 //how many cm are in a banana
-const kM = 100000 //this is just how many CM are in one KM
+const kM = 100000 //how many CM are in one KM
 const bananaResults = document.getElementById('bananaResults')
 
 const userSelect = document.getElementById("userSelect")
@@ -101,7 +96,7 @@ const currentLocation = document.getElementById("currentLocation")
 
 
 
-userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
+userForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     
     let issLatitude = 0
@@ -129,14 +124,10 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
 
     let bananaDistance = parseInt(distanceKM/(banana/kM))
     
-    // let distanceNannerfied = document.createElement('h2')
-    // realDistance.innerHTML = `Your location is ${distanceKM}KM away from the International Space Station's current location.`
+    
     
     bananaResults.innerText = `Your location is about ${bananaDistance} bananas away from the International Space Station's current location.`
     
-    // console.log(`Distance KM: `, distanceKM)
-    // resultsDiv.appendChild(realDistance)
-    // resultsDiv.appendChild(distanceNannerfied)
 })
 
 
