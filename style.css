@@ -72,7 +72,7 @@ button:hover {
     max-width: 75px;
     height: auto;
     animation-name: spin;
-    animation-duration: 9500ms;
+    animation-duration: 19500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 
@@ -81,7 +81,7 @@ button:hover {
     max-width: 75px;
     height: auto;
     animation-name: float;
-    animation-duration: 9500ms;
+    animation-duration: 19500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 
