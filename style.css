@@ -49,6 +49,7 @@ button:hover {
     }
 }
 
+
 .intro {
     background-color: darkslateblue;
     opacity: 60%;
@@ -122,8 +123,8 @@ button:hover {
 }
 
 
-#cosmicBanana{
-    max-width: 50vw;
+#issGif{
+    max-width: 35vw;
 }
 
 #bss {
