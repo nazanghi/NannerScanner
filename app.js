@@ -87,7 +87,7 @@ bsAddresses = [
 const ISS_LOC = "http://api.open-notify.org/iss-now.json" //API for the ISS
 const GMAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA" //API Key for Google Maps
 const startingAddress = document.getElementById("startingAddress") //where the user types their address
-// let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
+let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
 let addressInput = startingAddress.value || bsAddresses[Math.floor(Math.random()*bsAddresses.length)] //gives user address OR if null, Margaritaville, etc
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
 const banana = 18 
@@ -104,41 +104,40 @@ const currentLocation = document.getElementById("currentLocation")
 //I need to add a separate thing similar to below, but for the use current location
 
 
-// currentLocation.addEventListener("click", async (e) => {
-//     e.preventDefault()
+currentLocation.addEventListener("click", async (e) => {
+    e.preventDefault()
     
-//     let issLatitude = 0
-//     let issLongitude = 0
-//     let userLatitude = 0
-//     let userLongitude = 0
-    
-//     try {
-//         const issResponse = await axios.get(ISS_LOC) 
-//         useCurrentPosition = () =>
-//         navigator.geolocation.getCurrentPosition(position=> {
-//             position.coords.latitude, position.coords.longitude         
-//             userLongitude = position.coords.longitude
-//             userLatitude = position.coords.latitude
-//             return userLongitude, userLatitude  
-//         })
-            
+    let issLatitude = 0
+    let issLongitude = 0
+    let userLatitude = 0
+    let userLongitude = 0
 
-//         issLatitude = issResponse.data.iss_position.latitude
-//         issLongitude = issResponse.data.iss_position.longitude
-//         }
-//     catch(error){
-//         console.log(error)
-//     }
     
-//     console.log("://BANANA_BUTTON_VALUE_RECEIVED");
-//     console.log(`User Coordinates: ${userLongitude, userLatitude} ISS Coords: ${issLongitude, issLatitude}`)
-//     let distanceKM = parseInt((Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111);
-//     console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
+    // useCurrentPosition = () =>{
+    navigator.geolocation.getCurrentPosition(position=> {
+        position.coords.latitude, position.coords.longitude         
+        userLongitude = position.coords.longitude
+        userLatitude = position.coords.latitude
+        })  
+    // }
+    try {
+        const issResponse = await axios.get(ISS_LOC) 
+        issLatitude = issResponse.data.iss_position.latitude
+        issLongitude = issResponse.data.iss_position.longitude
+        }
+    catch(error){
+        console.log(error)
+    }
+    
+    console.log("://BANANA_BUTTON_VALUE_RECEIVED");
+    console.log(`User Coordinates: ${userLongitude, userLatitude} ISS Coords: ${issLongitude, issLatitude}`)
+    let distanceKM = parseInt((Math.sqrt( ((issLongitude - userLongitude)**2) + ((issLatitude - userLatitude)**2)))*111);
+    console.log(`Coordinates:`, issLongitude, userLongitude, issLatitude, userLatitude)
 
-//     let bananaDistance = parseInt(distanceKM/(banana/kM))
-//     bananaResults.InnerText = `Your current location is ${bananaDistance} bananas away from the International Space Station's current location.`
+    let bananaDistance = parseInt(distanceKM/(banana/kM))
+    bananaResults.InnerText = `Your current location is ${bananaDistance} bananas away from the International Space Station's current location.`
     
-// })
+})
 
 
 userForm.addEventListener("submit", async (e) => {     //proof that anonymous functions are not that scary
@@ -183,46 +182,39 @@ userForm.addEventListener("submit", async (e) => {     //proof that anonymous fu
 let nansForever = document.getElementById("nansForever")
 
 document.addEventListener("DOMContentLoaded", () =>{
+    
     nannerfy = () => {
-    let holyBanana= document.createElement("div")
-    let bananaBody= document.createElement("div")
-    let img = document.createElement("img")
-    img.setAttribute("src", "https://media.tenor.com/images/a41a9667ebbf62041425bb9e7eadcd11/tenor.gif")
-    img.classList.add('nanners')
-    bananaBody.appendChild(img)
-    holyBanana.appendChild(bananaBody)
-    bananaBody.classList.add('floatingBanana')
-    holyBanana.classList.add('flyingBanana')
-    nansForever.appendChild(holyBanana)
-}
-    let bssOnline = () => {
-        let iss= document.createElement("div")
-        let issSpin = document.createElement('div')
-        let issImg = document.createElement('img')
-        let link = document.createElement("a")
-        issImg.src = "https://media4.giphy.com/media/efyEHHq2LXZIvLlEpI/giphy.gif"
-        link.href="./facts.html"
-        link.appendChild(issImg)
-        
-        issSpin.classList.add('floatingBanana')
-        iss.classList.add('flyingBanana')
-        iss.id = "bss"
-        issImg.style.width = "400px"
-        issImg.style.height = "auto"
-        issSpin.appendChild(issImg)
-        iss.appendChild(issSpin)
-        nansForever.appendChild(iss)
+        let holyBanana= document.createElement("div")
+        let bananaBody= document.createElement("div")
+        let img = document.createElement("img")
+        img.setAttribute("src", "https://media.tenor.com/images/a41a9667ebbf62041425bb9e7eadcd11/tenor.gif")
+        img.classList.add('nanners')
+        bananaBody.appendChild(img)
+        holyBanana.appendChild(bananaBody)
+        bananaBody.classList.add('floatingBanana')
+        holyBanana.classList.add('flyingBanana')
+        nansForever.appendChild(holyBanana)
     }
     
-    for (let i=0; i <=3; i++) {
-        setTimeout(nannerfy,((2000*i))
-        )
-        if (i === 3){
-            bssOnline()
+    let nannerSpawn = () => {
+        for (let i=0; i <50; i++) {
+            (setTimeout(nannerfy,(2000*i)), 5000)
         }
-        }
+    }
+    setTimeout(nannerSpawn, 20000)
+    
+    // let iss= document.createElement("div")
+    // let issSpin = document.createElement('div')
+    // let issImg = document.createElement('img')
+    // let link = document.createElement("a")
+    // issImg.src = "https://media4.giphy.com/media/efyEHHq2LXZIvLlEpI/giphy.gif"
+    // link.href="./facts.html"
+    // link.appendChild(issImg)
+    // issSpin.classList.add('floatingBanana')
+    // iss.classList.add('flyingBanana')
+    // issImg.style.width = "400px"
+    // issImg.style.height = "auto"
+    // issSpin.appendChild(issImg)
+    // iss.appendChild(issSpin)
+    // nansForever.appendChild(iss)
 })
-
-// set interval instead of settimeout, clear interval, and then once it's through set in the spaceship
-//set id for space station and make that hidden until my for loop ends with a toggle
-//clear timeout, on clear timeout, toggle class of id
