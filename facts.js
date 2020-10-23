@@ -1,7 +1,7 @@
 
 let bananaFacts = [
-    "Today's common banana, the Cavendish, is different from the Gros Michel from before the 60s, as Gros Michel Bananas were wiped out by The Panama Disease. If you're curious what Gros Michel bananas tasted like, try a Banana-flavored Laffy Taffy or Runt! Its recipe is unchanged and based on the bananas of its time.",  
- "The inside of a banana peel can help relieve itching and inflammation, like from bug bites or poison ivy!", 
+"The Gros Michel, common banana of the 1960s, is now totally exctint, but if you're curious what they tasted like, try a Banana-flavored Laffy Taffy or Runt! Their recipes are unchanged and based on them instead of today's Cavendish.",  
+ "The inside of a banana peel can help relieve itching and inflammation, like from bug bites or poison ivy! They probably wouldn't help with zero-gravity decompression though...", 
  "Bananas are considered a berry and the banana tree is actually an herb!", 
  "India consumes the most bananas in the world. In 2017, they ate more than the next three countries COMBINED.", 
  "There are more than 1,000 kinds of bananas, including Mona Lisa, Ice Cream, Goldfinger, and the Blue Java.", 
