@@ -87,7 +87,7 @@ bsAddresses = [
 const ISS_LOC = "http://api.open-notify.org/iss-now.json" //API for the ISS
 const GMAP_KEY = "AIzaSyCIhMaab2I5DZf5GaWnhVxZL2He90U-wfA" //API Key for Google Maps
 const startingAddress = document.getElementById("startingAddress") //where the user types their address
-let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
+// let bsAddress = "245 Front Street, Key West, FL 33040" //this will later be a math random at an array of bs addresses
 let addressInput = startingAddress.value || bsAddresses[Math.floor(Math.random()*bsAddresses.length)] //gives user address OR if null, Margaritaville, etc
 const GMAP_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput}&key=${GMAP_KEY}`
 const banana = 18 
@@ -195,26 +195,34 @@ document.addEventListener("DOMContentLoaded", () =>{
     holyBanana.classList.add('flyingBanana')
     nansForever.appendChild(holyBanana)
 }
-    let theBigUnpeel = () => {
-    for (let i=0; i <0; i++) {
-        setTimeout(nannerfy,((2000*i))
-        )}
-    let bssOnline = () =>{    
-    let iss= document.createElement("div")
-    let issSpin = document.createElement('div')
-    let issImg = document.createElement('img')
-    let link = document.createElement("a")
-    issImg.src = "https://media4.giphy.com/media/efyEHHq2LXZIvLlEpI/giphy.gif"
-    link.href="./facts.html"
-    link.appendChild(issImg)
-    issSpin.classList.add('floatingBanana')
-    iss.classList.add('flyingBanana')
-    issImg.style.width = "400px"
-    issImg.style.height = "auto"
-    issSpin.appendChild(issImg)
-    iss.appendChild(issSpin)
-    nansForever.appendChild(iss)}
+    let bssOnline = () => {
+        let iss= document.createElement("div")
+        let issSpin = document.createElement('div')
+        let issImg = document.createElement('img')
+        let link = document.createElement("a")
+        issImg.src = "https://media4.giphy.com/media/efyEHHq2LXZIvLlEpI/giphy.gif"
+        link.href="./facts.html"
+        link.appendChild(issImg)
+        
+        issSpin.classList.add('floatingBanana')
+        iss.classList.add('flyingBanana')
+        iss.id = "bss"
+        issImg.style.width = "400px"
+        issImg.style.height = "auto"
+        issSpin.appendChild(issImg)
+        iss.appendChild(issSpin)
+        nansForever.appendChild(iss)
     }
-    setTimeout(theBigUnpeel, 5000)
     
+    for (let i=0; i <=3; i++) {
+        setTimeout(nannerfy,((2000*i))
+        )
+        if (i === 3){
+            bssOnline()
+        }
+        }
 })
+
+// set interval instead of settimeout, clear interval, and then once it's through set in the spaceship
+//set id for space station and make that hidden until my for loop ends with a toggle
+//clear timeout, on clear timeout, toggle class of id

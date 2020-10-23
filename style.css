@@ -50,6 +50,14 @@ button:hover {
     max-width: 75px;
 }
 
+#cosmicBanana{
+    max-width: 20vw;
+}
+
+#bss {
+    max-width: 20vw;
+}
+
 @keyframes float {
     from {
         transform: translateX(0)
@@ -66,6 +74,12 @@ button:hover {
     to {
         transform: rotate(360deg);
     }
+}
+
+.intro {
+    background-color: darkslateblue;
+    opacity: 60%;
+    color: white;
 }
 
 .floatingBanana{
@@ -99,6 +113,8 @@ button:hover {
     display: flex;
     align-items: flex-end;
 }
+
+#issGif {}
 
 .address {
     background-color: lightblue;
